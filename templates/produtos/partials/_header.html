@@ -1,0 +1,16 @@
+{% load static %}
+<!-- Header -->
+<section id="header">
+
+    <!-- Logo -->
+    <h1><a href="{% url 'home' %}">Animal Planet Comar</a></h1>
+
+    <!-- Nav -->    
+    <nav id="nav">
+        <ul>
+            <li class="{% if request.path == '/home/' %}current{% endif %}"><a href="{% url 'home' %}">Home</a></li>
+            <li class="{% if request.path == '/petshop/' %}current{% endif %}"><a href="{% url 'petshop' %}">Petshop</a></li>
+            <li class="{% if request.path == '/creche/' %}current{% endif %}"><a href="{% url 'creche' %}">Creche Pet</a></li>
+            <li class="{% if request.path == '/banho_tosa/' %}current{% endif %}"><a href="{% url 'banho_tosa' %}">Banho e Tosa</a></li>
+        </ul>
+    </nav>

@@ -1,0 +1,23 @@
+{% extends 'produtos/base.html' %}
+{% load static %}
+{% block content %}
+<section id="banner">
+    <h1 style="text-align:center;">Produtos em estoque</h1>
+</br>
+
+    <div class="product-container">
+        {% for produto in produtos %}
+        <div class="product-item">
+            <img src="{% static 'assets/' %}{{ produto.imagem }}" alt="Imagem de {{ produto.nome }}"
+                class="product-image">
+
+            <h2>{{ produto.nome }}</h2>
+            <p><strong>Preço:</strong> R${{ produto.preco }}</p>
+            <p><strong>Quantidade:</strong> {{ produto.quantidade }}</p>
+            <p>{{ produto.descricao }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

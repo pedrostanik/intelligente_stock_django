@@ -1,11 +1,41 @@
-<!DOCTYPE html>
+{% extends 'produtos/base.html' %}
+{% load static %}
+{% block content %}
+<!-- Banner -->
+<section id="banner">
+    <header>
+        <h2>Aqui seu pet está nas mãos de quem sabe!</h2>
+        <p></p>
+        </p>
+    </header>
+</section>
+{% endblock %}
+
+
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Estoque</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
-    <p>Olá, mundo!</p>
+    <h1>Produtos no estoque</h1>
+    <ul>
+        {% for produto in produtos %}
+        <li>
+            <h2>{{ produto.nome }}</h2>
+            <h2>Preço: R${{ produto.preco }}</h2>
+            <h2>Quantidade: {{ produto.quantidade }}</h2>
+            <h2>Descrição: {{ produto.descricao }}</h2>
+            <h2>Data de atualização: {{ produto.data_atualizacao }}</h2>
+        </li>
+        {% endfor %}
+    </ul>
 </body>
-</html>
+</html> -->
