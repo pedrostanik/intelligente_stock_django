@@ -3072,16 +3072,37 @@ ul.social li a.fa-google-plus:hover {
 	transition: transform 0.3s ease;
 }
 
+
 .product-item:hover {
 	transform: scale(1.05);
 	/* Efeito ao passar o mouse */
 }
 
 .product-image {
-	width: 100%;
-	height: auto;
+	width: 100px;
+	/* Define a largura fixa */
+	height: 100px;
+	/* Define a altura fixa */
+	object-fit: cover;
+	/* Corta a imagem para preencher o espaço, sem distorcer */
+	/* height: auto; */
 	border-radius: 8px;
 }
+
+.botao_cart {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.botao_cart:hover {
+	background: #e53359;
+}
+
 
 h2 {
 	font-size: 1.2em;
@@ -3092,6 +3113,24 @@ p {
 	font-size: 1em;
 	color: #555;
 }
+
+.button-decrease,
+.button-increase {
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 5px;
+	transition: background-color 0.3s ease;
+	height: 5%;
+	width: 10%;
+	text-align: center;
+	justify-content: center;
+	font-size: 8px;
+}
+
 
 /* Para telas menores, ajustamos o número de colunas */
 @media (max-width: 768px) {
@@ -3108,74 +3147,84 @@ p {
 
 /* Estilo do botão de chat */
 #chatButton {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    font-size: 24px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	border-radius: 50%;
+	width: 60px;
+	height: 60px;
+	font-size: 24px;
+	cursor: pointer;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Caixa de chat */
 .chat-box {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 300px;
-    height: 400px;
-    background-color: white;
-    border: 1px solid #ccc;
-    display: none;
-    flex-direction: column;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    border-radius: 8px;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	width: 300px;
+	height: 400px;
+	background-color: white;
+	border: 1px solid #ccc;
+	display: none;
+	flex-direction: column;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	z-index: 1000;
+	border-radius: 8px;
 }
 
 .chat-header {
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+	background-color: #007bff;
+	color: white;
+	padding: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .chat-body {
-    flex: 1;
-    padding: 10px;
-    overflow-y: auto;
-    border-bottom: 1px solid #ccc;
+	flex: 1;
+	padding: 10px;
+	overflow-y: auto;
+	border-bottom: 1px solid #ccc;
 	text-align: left;
 }
 
 /* Rodapé do chat (linha de digitação) */
 .chat-footer {
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background-color: white;
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	background-color: white;
 }
 
 .chat-footer input[type="text"] {
-    flex: 1; /* Preenche a largura do espaço restante */
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+	flex: 1;
+	/* Preenche a largura do espaço restante */
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
 }
 
 .chat-footer button {
-    padding: 8px 16px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+	padding: 8px 16px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.campoPesquisa {
+	position: absolute;
+	/* Remove do fluxo normal do documento */
+	top: 50px;
+	/* Ajuste a posição vertical */
+	left: 20px;
+	/* Ajuste a posição horizontal */
 }

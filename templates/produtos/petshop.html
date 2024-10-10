@@ -2,22 +2,31 @@
 {% load static %}
 {% block content %}
 <section id="banner">
+    <input type="text" id="campoPesquisa" name="campoPesquisa" placeholder="Digite aqui para encontrar um produto...">
     <h1 style="text-align:center;">Produtos em estoque</h1>
-</br>
+    </br>
 
     <div class="product-container">
         {% for produto in produtos %}
-        <div class="product-item">
+        <div class="product-item" data-id="{{ produto.id }}">
             <img src="{% static 'assets/' %}{{ produto.imagem }}" alt="Imagem de {{ produto.nome }}"
                 class="product-image">
 
             <h2>{{ produto.nome }}</h2>
             <p><strong>Preço:</strong> R${{ produto.preco }}</p>
-            <p><strong>Quantidade:</strong> {{ produto.quantidade }}</p>
             <p>{{ produto.descricao }}</p>
+            <button id="decrementButton_{{ produto.id }}" class="button-decrease">-</button>
+            <span id="qttyProduct_{{ produto.id }}" name="qtty_product">0</span>
+            <button id="incrementButton_{{ produto.id }}" class="button-increase">+</button>
+            <p id="warningStorage_{{ produto.id }}" style="color: red; font-weight: bold;"></p>
+            <input type="hidden" name="product_id" value="{{ produto.id }}">
         </div>
         {% endfor %}
+        
     </div>
+    <a href="{% url 'cart' %}" class="botao_cart">Ir para o carrinho</a>
+
+
 </section>
 
 {% endblock %}
