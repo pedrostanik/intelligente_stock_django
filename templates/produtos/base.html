@@ -6,6 +6,7 @@
     <title>PETSHOP</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    
     <link rel="stylesheet" href="{% static '/styles/style.css' %}" />
 </head>
 
@@ -13,9 +14,9 @@
     <div id="page-wrapper">
 
         <!-- Header -->
-        {% include 'produtos/partials/_header.html' %}
+        {% include 'partials/_header.html' %}
         {% block content %}{% endblock %}
-        {% include 'produtos/partials/_footer.html' %}
+        {% include 'partials/_footer.html' %}
         </section>
     </div>
     

@@ -1,23 +1,22 @@
 const itemsBought = {}
 
-
 // Função para criar o event listener de cada produto
 document.querySelectorAll(".product-item").forEach(productItem => {
     const incrementButton = productItem.querySelector("button[id^='incrementButton']");
     const decrementButton = productItem.querySelector("button[id^='decrementButton']");
-    const qttyProduct = productItem.querySelector("span[id^='qttyProduct']");
+    const qttyProduct = productItem.querySelector("input[id^='qttyProduct']");
     const productId = productItem.getAttribute('data-id');
     const warningStorage = productItem.querySelector("p[id^='warningStorage']");
 
     incrementButton.addEventListener('click', () => {
-        let value = parseInt(qttyProduct.textContent);
+        let value = parseInt(qttyProduct.value);
 
         // available = String(checkStock(value, productId));  
         checkStock(value, productId).then(available => {
             console.log("available: ", available);
             if (available) {
                 value += 1; // Incrementa o valor
-                qttyProduct.textContent = value;
+                qttyProduct.value = value;
                 warningStorage.textContent = ""
                 itemsBought[productId] = value
                 console.log(itemsBought)
@@ -33,14 +32,68 @@ document.querySelectorAll(".product-item").forEach(productItem => {
     });
 
     decrementButton.addEventListener('click', () => {
-        let value = parseInt(qttyProduct.textContent);
+        let value = parseInt(qttyProduct.value);
         if (value > 0) { // Previne valor negativo
             value -= 1;
         }
-        qttyProduct.textContent = value;
+        qttyProduct.value = value;
         warningStorage.textContent = "";
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const botaoCart = document.querySelector('.botao_cart');
+
+    botaoCart.addEventListener('click', function() {
+        // Lógica para finalizar a compra, por exemplo, redirecionar para o checkout
+        console.log("Botão 'Finalizar Compra' clicado!");
+
+        // Redirecionar para a página de checkout
+        // window.location.href = "{% url 'checkout' %}"; // Substitua 'checkout' pelo nome da sua URL
+        callCartAjax();
+    });
+});
+
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Verifica se o cookie começa com o nome desejado
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+const csrftoken = getCookie('csrftoken');
+
+function callCartAjax() {
+    fetch('cart', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken  // Adicione o token CSRF para segurança
+        },
+        body: JSON.stringify(itemsBought)
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.text();
+        }
+        throw new Error('Network response was not ok.')
+    })
+    .then(html => {
+        document.getElementById('cart-container').innerHTML = html;
+    })
+    .catch(error => {
+        console.error('Houve um problema com a requisição fetch:', error);
+    });
+}
 
 async function checkStock(currentQtty, productId) {
     const url = `/check_storage/${currentQtty}/${productId}`;
@@ -60,7 +113,6 @@ async function checkStock(currentQtty, productId) {
         throw error;  // Propaga o erro se necessário
     }
 }
-
 
 function toggleChat() {
     var chatBox = document.getElementById('chatBox');

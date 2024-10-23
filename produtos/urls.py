@@ -13,7 +13,10 @@ urlpatterns = [
     path('creche/', views.creche, name='creche'),
     path('respond_message/<str:message>', views.respond_message, name='respond_message'),
     path('check_storage/<int:currentValue>/<int:productId>', views.check_storage, name='check_storage'),
-    path('cart', views.cart, name='cart')
+    path('add_cart/', views.add_cart, name='add_cart'),
+    path('cart/', views.cart, name='cart'),
+    path('insert_sell/', views.insert_sell, name='insert_sell'),
+    path('bougth_finished/', views.bougth_finished, name='bougth_finished'),
 ] 
 
 

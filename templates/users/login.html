@@ -1,0 +1,23 @@
+{% extends 'produtos/base.html' %}
+{% load static %}
+{% block content %}
+<br>
+<br>
+<section>
+    <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="centered-form">
+            {% for field in form.visible_fields %}
+            <div class="form-group col-md-6" style="width: 300px; margin: auto; align-self: center;">
+                <label for="{{ field.id_for_label }}" style="color:#5D5D5D; margin-bottom: 5px; ">{{field.label}}</label>
+                {{ field }} <!-- adicionando classe bootstrap para formatação -->
+            </div>
+            {% endfor %}
+        </div>
+        <div>
+            <button style="margin-top: 10px;">Logar</button>
+        </div>
+    </form>
+</section>
+
+{% endblock %}
