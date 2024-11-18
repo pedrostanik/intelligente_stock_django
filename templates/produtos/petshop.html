@@ -1,0 +1,44 @@
+{% extends 'produtos/base.html' %}
+{% load static %}
+{% block content %}
+<section id="banner">
+    <form action="{% url 'petshop' %}">
+        <div class="form-search">
+            <input type="text" id="campoPesquisa" name="campoPesquisa"
+                placeholder="Digite aqui para encontrar um produto...">
+            <button type="submit" class="button-lupa">
+                <img src="{% static '/assets/lupa.png' %}" class="image-lupa" alt="Pesquisar">
+            </button>
+        </div>
+    </form>
+    <h1 style="text-align:center;">Produtos em estoque</h1>
+    </br>
+    <div class="product-container">
+        {% csrf_token %} {% for produto in produtos %}
+        {% if produto.open_to_sell %}
+        <div class="product-item" data-id="{{ produto.id }}">
+            {% if produto.imagem %}
+                <img src="{{ produto.imagem.url }}" alt="Imagem de {{ produto.nome }}" class="product-image">
+            {% else %}
+                <img src="{% static 'assets/not_found.png' %}" alt="Imagem de {{ produto.nome }}" class="product-image">
+            {% endif %}
+            <h2>{{ produto.nome }}</h2>
+            <p><strong>Preço:</strong> R${{ produto.preco }}</p>
+            <p>{{ produto.descricao }}</p>
+            <form method="POST" action="{% url 'add_cart' %}">
+                {% csrf_token %}
+                <input type="hidden" name="produto_id" value="{{ produto.id }}"> <label for="qttyProduct_{{ produto.id }}">Quantidade:</label>
+                <input type="number" id="qttyProduct_{{ produto.id }}" name="quantidade" min="1" value="1">
+                <button type="submit">Adicionar ao carrinho</button>
+            </form>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    </form>
+    <a class="botao_cart" name="botao_cart">Finalizar Compra</a>
+
+
+</section>
+
+{% endblock %}

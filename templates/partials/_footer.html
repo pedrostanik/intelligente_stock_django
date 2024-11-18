@@ -1,0 +1,18 @@
+{% load static %}
+<!-- Botão de Chat -->
+<button id="chatButton" onclick="toggleChat()">💬 Chat</button>
+
+<!-- Estrutura do Chat -->
+<div id="chatBox" class="chat-box">
+    <div class="chat-header">
+        <h4>Chat</h4>
+        <!-- <button onclick="toggleChat()">❌</button> -->
+    </div>
+    <div class="chat-body" id="chatBody">
+        <!-- As mensagens aparecerão aqui -->
+    </div>
+    <div class="chat-footer">
+        <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
+        <button onclick="sendMessage()">Enviar</button>
+    </div>
+</div>

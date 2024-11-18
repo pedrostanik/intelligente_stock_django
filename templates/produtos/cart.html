@@ -1,0 +1,51 @@
+{% extends 'produtos/base.html' %}
+{% load static %}
+
+{% block content %}
+<br>
+<br>
+<form method="POST" action="{% url 'insert_sell' %}">
+    {% csrf_token %}
+    <table>
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Preço Unitário</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in produtos_carrinho %}
+            <tr>
+                <td>{{ item.produto.nome }}</td>
+                <td>{{ item.quantidade }}</td>
+                <td>R$ {{ item.produto.preco }}</td>
+                <td>R$ {{ item.subtotal }}</td>
+            </tr>
+            <input type="hidden" name="produto_nome_{{ forloop.counter}}" value="{{ item.produto.nome }}">
+            <input type="hidden" name="produto_quantidade_{{ forloop.counter}}" value="{{ item.quantidade }}">
+            <input type="hidden" name="produto_preco_{{ forloop.counter}}" value="{{ item.produto.preco }}">
+            <input type="hidden" name="produto_subtotal_{{ forloop.counter}}" value="{{ item.subtotal }}">
+            {% if forloop.last %}
+            <!-- Captura o valor mais alto de forloop.counter -->
+            <input type="hidden" name="total_produtos" value="{{ forloop.counter }}">
+            {% endif %}
+            {% endfor %}
+
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">Total</td>
+                <td>R$ {{ total }}</td>
+            </tr>
+        </tfoot>
+    </table>
+    0
+    <button type="submit">Finalizar Compra</button>
+</form>
+
+
+{% endblock %}
+<!--  TABELA COMPRAS ID_USUARIO, DIA DA SEMANA DA COMPRA, DIA DO MES DA COMPRA, FIM DE SEMANA OU NAO, TOTAL -->

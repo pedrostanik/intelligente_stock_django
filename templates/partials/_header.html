@@ -1,0 +1,45 @@
+{% load static %}
+<!-- Header -->
+<!-- login/register -->
+
+
+<div class="top-bar">
+    <div class="login-register d-flex justify-content-end">
+        <a href="{% url 'register' %}" class="btn btn-success mx-2">Register</a>
+        <a href="{% url 'login' %}" class="btn btn-primary mx-2">Login</a>        
+        <a href="{% url 'logout' %}" class="btn btn-success mx-2">Logout</a>
+    </div>
+
+    <!-- <div class="form-group col-md-6" style="width: 300px; margin: auto; align-self: center;"> -->
+
+    <div class="form-group col-md-6 message-container" style="margin: auto; align-self: center;">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}" style="display: flex; justify-content: center; align-items: center;" role="alert">
+            {{message}}
+        </div>
+      
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+
+<section id="header">
+
+    <!-- Logo -->
+    <img src="{% static '/assets/pawprint.png' %}" class="image-header" alt="image-header">
+    <h1><a href="{% url 'home' %}">Animal Planet Comar</a></h1>
+
+    <!-- Nav -->
+    <nav id="nav">
+        <ul>
+            <li class="{% if request.path == '/home/' %}current{% endif %}"><a href="{% url 'home' %}">Home</a></li>
+            <li class="{% if request.path == '/petshop/' %}current{% endif %}"><a href="{% url 'petshop' %}">Petshop</a>
+            </li>
+            <li class="{% if request.path == '/creche/' %}current{% endif %}"><a href="{% url 'creche' %}">Creche
+                    Pet</a></li>
+            <li class="{% if request.path == '/banho_tosa/' %}current{% endif %}"><a href="{% url 'banho_tosa' %}">Banho
+                    e Tosa</a></li>
+        </ul>
+    </nav>
