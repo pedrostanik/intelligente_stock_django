@@ -32,23 +32,23 @@ git clone https://github.com/seu-usuario/petshop.git
 cd petshop
 Crie um ambiente virtual:
 
-```bash
+bash
 Copiar código
 python -m venv venv
 source venv/bin/activate  # No Windows: venv\Scripts\activate
 Instale as dependências:
 
-```bash
+bash
 Copiar código
 pip install -r requirements.txt
 Aplique as migrações do banco de dados:
 
-```bash
+bash
 Copiar código
 python manage.py migrate
 Inicie o servidor de desenvolvimento:
 
-```bash
+bash
 Copiar código
 python manage.py runserver
 Acesse o projeto no navegador:
