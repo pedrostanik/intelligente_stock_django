@@ -23,19 +23,16 @@ Pré-requisitos
 Python
 Git
 Virtualenv (opcional, mas recomendado)
+
 Passos para Configuração
 Clone o repositório:
-
-
 Copiar código
 ```bash
 git clone https://github.com/seu-usuario/petshop.git
 cd petshop
+```
 
 Crie um ambiente virtual:
-
-
-Copiar código
 ```bash
 python -m venv venv
 source venv/bin/activate  # No Windows: venv\Scripts\activate
