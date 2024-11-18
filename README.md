@@ -24,7 +24,7 @@ Virtualenv (opcional, mas recomendado)
 Passos para Configuração
 Clone o repositório:
 
-bash
+```bash
 Copiar código
 git clone https://github.com/seu-usuario/petshop.git
 cd petshop
