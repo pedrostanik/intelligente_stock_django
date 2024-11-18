@@ -1,3 +1,97 @@
+[ENGLISH]
+# 🐾 PetShop Online with Django and Chatbot 💻🛒🤖
+
+## This project is an e-commerce system for a pet shop developed with Django, offering a unique and personalized experience for pet owners. With the integration of an intelligent chatbot, users can ask questions, receive product recommendations, and take better care of their animals.
+
+## 🎯 Main Features
+- **Pet Product Catalog**: Full management of products, including food, toys, accessories, medications, and more.
+- **Shopping Cart and Checkout**: Add items to the cart, complete purchases, and track order status.
+- **Custom Pet Chatbot**: A virtual assistant that:
+  - Recommends products based on the pet's type and needs.
+  - Answers questions about pet care.
+  - Suggests promotions and special offers.
+- **User System**: Registration, login, and purchase history for each customer.
+- **Admin Panel**: Tools to manage products, orders, and customers.
+
+## 🛠️ Technologies Used
+- **Language**: Python
+- **Backend Framework**: Django
+- **Database**: SQLite (for development) or PostgreSQL (recommended for production)
+- **Chatbot**: AI-based solution integrated for personalized customer service.
+
+## 🚀 How to Run the Project
+### Prerequisites
+- Python
+- Git
+- Virtualenv (optional, but recommended)
+
+### Setup Instructions
+Clone the repository:
+```bash
+git clone https://github.com/pedrostanik/intelligente_stock_django.git
+cd petshop
+```
+
+Create virtual environmental:
+```bash
+python -m venv venv
+source venv/bin/activate  # No Windows: venv\Scripts\activate
+```
+
+Intall dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+Apply migrations:
+```bash
+python manage.py migrate
+```
+
+Start server:
+```bash
+python manage.py runserver
+```
+
+
+## 🤖 Chatbot Setup
+Set up the chatbot to respond to the e-commerce needs:
+
+Personalize responses based on pet type (dogs, cats, etc.).
+Add useful information like care and nutrition tips.
+Configure API keys and external services (like OpenAI or Dialogflow) in the settings.py file.
+
+bash
+python manage.py test
+📂 Estrutura do Projeto
+plaintext
+
+.
+├── petshop/
+│   ├── settings.py      # Django project settings
+│   ├── urls.py          # Project routes
+│   ├── wsgi.py          # WSGI configuration for deployment
+├── chatbot/             # Chatbot application
+├── products/            # Product management application
+├── cart/                # Shopping cart application
+├── customers/           # Customer registration and management application
+├── templates/           # HTML templates
+├── static/              # Static files (CSS, JS, images)
+├── manage.py            # Django management command
+├── requirements.txt     # Project dependencies
+
+## 🐕 Future Improvements
+Integration with payment gateways like Stripe or PayPal.
+Implementation of a subscription system for pet food and other consumables.
+Functionality to upload pet information (age, weight, allergies) for more accurate recommendations.
+Support for seasonal promotions, such as "Black Friday for Pets."
+
+## 🙌 Contributions
+Contributions are welcome! Feel free to open issues and pull requests for improvements.
+
+
+
+[PORTUGUÊS]
 # 🐾 PetShop Online com Django e Chatbot 💻🛒🤖
 
 ## Este projeto é um sistema de e-commerce para petshop desenvolvido com Django, que oferece uma experiência única e personalizada para donos de pets. Com a integração de um chatbot inteligente, os usuários podem tirar dúvidas, receber recomendações de produtos e cuidar melhor de seus animais.
