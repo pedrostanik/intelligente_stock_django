@@ -1,4 +1,4 @@
-🐾 PetShop Online com Django e Chatbot 💻🛒🤖
+#🐾 PetShop Online com Django e Chatbot 💻🛒🤖
 
 Este projeto é um sistema de e-commerce para petshop desenvolvido com Django, que oferece uma experiência única e personalizada para donos de pets. Com a integração de um chatbot inteligente, os usuários podem tirar dúvidas, receber recomendações de produtos e cuidar melhor de seus animais.
 
