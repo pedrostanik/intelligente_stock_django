@@ -28,7 +28,7 @@ Passos para Configuração
 Clone o repositório:
 Copiar código
 ```bash
-git clone https://github.com/seu-usuario/petshop.git
+git clone https://github.com/pedrostanik/intelligente_stock_django.git
 cd petshop
 ```
 
@@ -88,8 +88,6 @@ Integração com gateways de pagamento, como Stripe ou PayPal.
 Implementação de um sistema de assinaturas para rações e outros consumíveis.
 Funcionalidade de upload de informações do pet (idade, peso, alergias) para sugestões mais precisas.
 Suporte a promoções sazonais, como "Black Friday para Pets".
-📄 Licença
-Este projeto é distribuído sob a licença MIT. Consulte o arquivo LICENSE para mais informações.
 
 ## 🙌 Contribuições
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests para melhorias.
