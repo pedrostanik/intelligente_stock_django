@@ -44,15 +44,18 @@ source venv/bin/activate  # No Windows: venv\Scripts\activate
 Instale as dependências:
 ```bash
 pip install -r requirements.txt
-Aplique as migrações do banco de dados:
+```
 
+Aplique as migrações do banco de dados:
 ```bash
 python manage.py migrate
-Inicie o servidor de desenvolvimento:
+```
 
+Inicie o servidor de desenvolvimento:
 ```bash
 python manage.py runserver
-Acesse o projeto no navegador:
+```
+
 
 
 ## 🤖 Configuração do Chatbot
