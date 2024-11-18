@@ -26,36 +26,33 @@ Virtualenv (opcional, mas recomendado)
 Passos para Configuração
 Clone o repositório:
 
-```bash
+
 Copiar código
+```bash
 git clone https://github.com/seu-usuario/petshop.git
 cd petshop
+
 Crie um ambiente virtual:
 
-bash
+
 Copiar código
+```bash
 python -m venv venv
 source venv/bin/activate  # No Windows: venv\Scripts\activate
-Instale as dependências:
 
-bash
-Copiar código
+Instale as dependências:
+```bash
 pip install -r requirements.txt
 Aplique as migrações do banco de dados:
 
-bash
-Copiar código
+```bash
 python manage.py migrate
 Inicie o servidor de desenvolvimento:
 
-bash
-Copiar código
+```bash
 python manage.py runserver
 Acesse o projeto no navegador:
 
-arduino
-Copiar código
-http://127.0.0.1:8000
 
 ## 🤖 Configuração do Chatbot
 Configure o chatbot para responder às necessidades do e-commerce:
